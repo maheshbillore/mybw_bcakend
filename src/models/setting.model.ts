@@ -21,6 +21,7 @@ export interface ISetting extends Document {
     merchant_user_id: string,
     base_url: string,
     redeem_rate:number,
+    minRedeemPoints:number,
     client_id: string,
     client_secret: string,
 }
@@ -104,6 +105,10 @@ const settingSchema = new Schema<ISetting>({
         required: false
     },
     redeem_rate:{
+        type:Number,
+        required:false
+    },
+    minRedeemPoints:{
         type:Number,
         required:false
     },

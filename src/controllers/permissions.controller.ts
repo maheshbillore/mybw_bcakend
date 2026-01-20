@@ -19,19 +19,19 @@ export class PermissionsController {
     }
 
     static async getPermission(req: Request, res: Response) {
-        const { permissionId } = req.params;
+        const permissionId = req.params.permissionId as string;
         const getPermission = await PermissionsService.getPermission(permissionId);
         res.status(getPermission.success ? 200 : 404).json(getPermission);
     }
 
     static async updatePermission(req: Request, res: Response) {
-        const { permissionId } = req.params;
+        const permissionId = req.params.permissionId as string;
         const updatePermission = await PermissionsService.updatePermission(permissionId, req.body);
         res.status(updatePermission.success ? 200 : 404).json(updatePermission);
     }
 
     static async deletePermission(req: Request, res: Response) {
-        const { permissionId } = req.params;
+        const permissionId = req.params.permissionId as string;
         const deletePermission = await PermissionsService.deletePermission(permissionId);
         res.status(deletePermission.success ? 200 : 404).json(deletePermission);
     }
@@ -52,13 +52,13 @@ export class PermissionsController {
     }
 
     static async getRoleHasPermissions(req: Request, res: Response) {
-        const { roleId } = req.params;
+        const roleId = req.params.roleId as string;
         const getRoleHasPermissions = await PermissionsService.getRoleHasPermissions(roleId);
         res.status(getRoleHasPermissions.success ? 200 : 404).json(getRoleHasPermissions);
     }
 
     static async getRoleBasedPermissions(req: Request, res: Response) {
-        const { roleId } = req.params;
+        const roleId = req.params.roleId as string;
         const getRoleBasedPermissions = await PermissionsService.getRoleBasedPermissions(roleId);
         res.status(getRoleBasedPermissions.success ? 200 : 404).json(getRoleBasedPermissions);
     }

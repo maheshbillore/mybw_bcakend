@@ -3617,9 +3617,9 @@ export class AdminService {
         {
           $set: { status: "inactive" }
         }
-      );
+      ); 
       const res = await Setting.findOneAndUpdate(
-        { type: "redeem_rate", redeem_rate: payload?.redeem_rate },
+        { type: "redeem_rate", redeem_rate: payload?.redeemRate,minRedeemPoints:payload?.minRedeemPoints },
         { $set: { redeem_rate: payload?.redeem_rate, status: "active" } },
         { upsert: true, new: true }
       )

@@ -73,7 +73,7 @@ export class CategoryController {
 
     static async updateCategory(req: Request, res: Response): Promise<void> {
         try {
-            const { id } = req.params;
+            const id = req.params.id as string;
             const file = req?.file as Express.Multer.File;
 
             const userRole = req.user?.role || '';
@@ -109,7 +109,7 @@ export class CategoryController {
 
     static async deleteCategory(req: Request, res: Response): Promise<void> {
         try {
-            const { id } = req.params;
+            const id = req.params.id as string;
 
             const userRole = req.user?.role || '';
             const userId = req.user?._id || req.user?.id;

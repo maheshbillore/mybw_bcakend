@@ -34,7 +34,7 @@ export class SubCategoryController {
 
     static async updateSubCategory(req: AuthRequest, res: Response) {
         try {
-            const { id } = req.params;
+            const id = req.params.id as string;
             
             if (!id) {
                 return res.status(400).json({
@@ -65,7 +65,7 @@ export class SubCategoryController {
 
     static async deleteSubCategory(req: AuthRequest, res: Response) {
         try {
-            const { id } = req.params;
+            const id = req.params.id as string;
             
             if (!id) {
                 return res.status(400).json({
@@ -97,7 +97,7 @@ export class SubCategoryController {
 
     static async getSubCategoryById(req: AuthRequest, res: Response) {
         try {
-            const { id } = req.params;
+            const id = req.params.id as string;
             
             if (!id) {
                 return res.status(400).json({
@@ -118,7 +118,7 @@ export class SubCategoryController {
 
     static async updateSubCategoryStatus(req: AuthRequest, res: Response) {
         try {
-            const { id } = req.params;
+            const id = req.params.id as string;
             const { status } = req.body;
             
             if (!id) {

@@ -62,8 +62,8 @@ export class PartnerController {
     // }
 
     static async updatePartnersSkill(req: Request, res: Response) {
-        const { partnerId } = req.params;
-        const { skillId } = req.params;
+        const partnerId = req.params.partnerId as string;
+        const skillId = req.params.skillId as string;
 
         if (!partnerId) {
             return {
@@ -94,7 +94,7 @@ export class PartnerController {
     }
 
     static async getPartner(req: Request, res: Response) {
-        const { id } = req.params;
+        const id = req.params.id as string;
         const result = await PartnerService.getPartnerById(id);
         res.status(result.success ? 200 : 404).json(result);
     }
@@ -574,7 +574,7 @@ export class PartnerController {
 
 
     static async getLanguages(req: Request, res: Response) {
-        const languageType = req?.params?.languageType;
+        const languageType = req?.params?.languageType as string;
         const result = await PartnerService.getLanguages(languageType);
         res.status(result?.status).json(result);
     }

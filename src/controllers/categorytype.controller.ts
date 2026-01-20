@@ -16,7 +16,7 @@ export class CategorytypeController {
     }
     
     static async update(req:Request,res:Response){
-        const { id } = req.params; 
+        const id = req.params.id as string; 
         const file = req.file; 
         const result = await CategorytypeService.update(id,req.body,file);
         res.status(result.success ? 200 : 404).json(result);

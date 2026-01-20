@@ -189,7 +189,7 @@ export class SubCategoryService {
                 };
             }
 
-            if (userRole !== 'admin' && subCategory.createdBy.toString() !== userId.toString()) {
+            if (userRole !== 'admin' && subCategory?.createdBy?.toString() !== userId.toString()) {
                 return {
                     success: false,
                     data: null,

@@ -74,7 +74,7 @@ export class ServiceController {
 
     static async updateService(req: Request, res: Response) {
         try {
-            const { id } = req.params;
+            const id = req.params.id as string;
             const file = req?.file;
 
             // Validate req.body.data exists
@@ -159,7 +159,7 @@ export class ServiceController {
 
     static async deleteService(req: Request, res: Response) {
         try {
-            const { id } = req.params;
+            const id = req.params.id as string;
 
             const result = await Services.deleteService(
                 id,

@@ -24,19 +24,19 @@ export class RolesController {
     }
 
     static async getRole(req: Request, res: Response) {
-        const { roleId } = req.params;
+        const roleId = req.params.roleId as string;
         const getRole = await RolesService.getRole(roleId);
         res.status(getRole.success ? 200 : 404).json(getRole);
     }
 
     static async updateRole(req: Request, res: Response) {
-        const { roleId } = req.params;
+        const roleId = req.params.roleId as string;
         const updateRole = await RolesService.updateRole(roleId, req.body);
         res.status(updateRole.success ? 200 : 404).json(updateRole);
     }
 
     static async deleteRole(req: Request, res: Response) {
-        const { roleId } = req.params;
+        const roleId = req.params.roleId as string;
         const deleteRole = await RolesService.deleteRole(roleId);
         res.status(deleteRole.success ? 200 : 404).json(deleteRole);
     }

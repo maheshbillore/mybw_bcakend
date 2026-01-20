@@ -15,7 +15,7 @@ export class CustomerController {
     }
 
     static async getCustomerInfo(req: Request, res: Response) {
-        const { id } = req.params;
+        const id = req.params.id as string;
         const result = await CustomerService.getACustomer(id);
         res.status(result.success ? 200 : 404).json(result);
     }
@@ -214,7 +214,7 @@ export class CustomerController {
         res.status(result?.success ? 200 : 404).json(result);
     }
     static async bookingPaymentStatus(req: Request, res: Response) {
-        const merchantOrderId = req?.params?.merchantOrderId;
+        const merchantOrderId = req?.params?.merchantOrderId as string;
         const result = await CustomerService.bookingPaymentStatus(merchantOrderId);
         res.status(result?.success ? 200 : 404).json(result);
     }
@@ -250,7 +250,7 @@ export class CustomerController {
     }
 
     static async getLanguages(req: Request, res: Response) {
-        const languageType = req?.params?.languageType;
+        const languageType = req?.params?.languageType as string;
         const result = await CustomerService.getLanguages(languageType);
         res.status(result?.status).json(result);
     }

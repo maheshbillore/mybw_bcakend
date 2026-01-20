@@ -14,19 +14,19 @@ export class BidChargesController {
     }
 
     static async getBidCharge(req: Request, res: Response) {
-        const { bidChargeId } = req.params;
+        const bidChargeId = req.params.bidChargeId as string;
         const getBidCharge = await BidChargesService.getBidCharge(bidChargeId);
         res.status(getBidCharge.success ? 200 : 404).json(getBidCharge);
     }
 
     static async updateBidCharge(req: Request, res: Response) {
-        const { bidChargeId } = req.params;
+        const bidChargeId = req.params.bidChargeId as string;
         const updateBidCharge = await BidChargesService.updateBidCharge(bidChargeId, req.body);
         res.status(updateBidCharge.status).json(updateBidCharge);
     }
 
     static async deleteBidCharge(req: Request, res: Response) {
-        const { bidChargeId } = req.params;
+        const bidChargeId = req.params.bidChargeId as string;
         const deleteBidCharge = await BidChargesService.deleteBidCharge(bidChargeId);
         res.status(deleteBidCharge.success ? 200 : 404).json(deleteBidCharge);
     }

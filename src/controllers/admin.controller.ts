@@ -11,13 +11,13 @@ export class AdminController {
   }
 
   static async updateCustomer(req: Request, res: Response) {
-    const { id } = req.params;
+    const id = req.params.id as string;
     const result = await AdminService.updateUserInfo(id, req.body);
     res.status(result.success ? 200 : 404).json(result);
   }
 
   static async deactivateUser(req: Request, res: Response) {
-    const { id } = req.params;
+    const id = req.params.id as string;
     const result = await AdminService.deactiveUser(id);
     res.status(result.success ? 200 : 404).json(result);
   }
@@ -46,7 +46,7 @@ export class AdminController {
   }
 
   static async updateComplaint(req: Request, res: Response) {
-    const { id } = req.params;
+    const id = req.params.id as string;
     const { status, refundApproved } = req.body;
 
     const result = await AdminService.updateComplaint(id, {
@@ -59,7 +59,7 @@ export class AdminController {
 
   static async updatePartnerDetails(req: Request, res: Response) {
     
-    const { id } = req.params;
+    const id = req.params.id as string;
 
     // Validate ID
     if (!id || !/^[0-9a-fA-F]{24}$/.test(id)) {

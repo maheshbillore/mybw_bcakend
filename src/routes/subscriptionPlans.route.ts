@@ -43,7 +43,7 @@ router.get("/customer-subscription-plans",
     authorize("admin","partner") as RequestHandler,
     asyncHandler(SubscriptionPlansController.getCustomerAllSubscriptionPlans)
 );
- 
+  
 
 router.put("/customer-subscription-plans/:id", 
     authMiddleware as RequestHandler,

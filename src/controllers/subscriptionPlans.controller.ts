@@ -14,13 +14,13 @@ export class SubscriptionPlansController {
     }
 
     static async updateSubscriptionPlan(req: Request, res: Response) {
-        const { id } = req.params;
+        const id = req.params.id as string;
         const result = await SubscriptionPlansService.updateSubscriptionPlan(id, req.body);
         res.status(result.success ? 200 : 404).json(result);
     }
 
     static async deleteSubscriptionPlan(req: Request, res: Response) {
-        const { id } = req.params;
+        const id = req.params.id as string;
         const result = await SubscriptionPlansService.deleteSubscriptionPlan(id);
         res.status(result.success ? 200 : 404).json(result);
     }
@@ -36,7 +36,7 @@ export class SubscriptionPlansController {
     }
 
     static async updateCustomerSubscriptionPlan(req: Request, res: Response) {
-        const { id } = req.params;
+        const id = req.params.id as string;
         const result = await SubscriptionPlansService.updateCustomerSubscriptionPlan(id, req.body);
         res.status(result.success ? 200 : 404).json(result);
     }

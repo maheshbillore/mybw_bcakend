@@ -1586,7 +1586,7 @@ export class WebPartnerService {
                     await updateProfileCompletion(partner._id);
                 }
 
-                const profile = await getProfile(newUser._id as string);
+                const profile = await getProfile(newUser._id.toString());
 
 
                 return {
@@ -1607,7 +1607,7 @@ export class WebPartnerService {
                     await updateProfileCompletion(partner._id);
                 }
 
-                const profile = await getProfile(user._id as string);
+                const profile = await getProfile(user._id.toString());
 
                 const token = jwt.sign(
                     { id: user._id, role: user.role },
@@ -1802,7 +1802,7 @@ export class WebPartnerService {
                     process.env.JWT_SECRET!,
                     { expiresIn: "7d" }
                 );
-                const profile = await getProfile(newUser?._id as string);
+                const profile = await getProfile(newUser?._id?.toString());
                 return {
                     success: true,
                     data: {
@@ -1820,7 +1820,7 @@ export class WebPartnerService {
                 );
 
 
-                const profile = await getProfile(user._id as string);
+                const profile = await getProfile(user?._id?.toString());
 
                 await updateProfileCompletion(profile?.partner?._id);
 

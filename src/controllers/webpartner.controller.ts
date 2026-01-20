@@ -62,8 +62,8 @@ export class WebPartnerController {
     // }
 
     static async updatePartnersSkill(req: Request, res: Response) {
-        const { partnerId } = req.params;
-        const { skillId } = req.params;
+        const partnerId = req.params.partnerId as string;
+        const skillId = req.params.skillId as string;
 
         if (!partnerId) {
             return {
@@ -94,7 +94,7 @@ export class WebPartnerController {
     }
 
     static async getPartner(req: Request, res: Response) {
-        const { id } = req.params;
+        const id = req.params.id as string;
         const result = await WebPartnerService.getPartnerById(id);
         res.status(result.success ? 200 : 404).json(result);
     }

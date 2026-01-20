@@ -38,7 +38,7 @@ export class BookingController {
     }
 
     static async partnerAccept(req: Request, res: Response) {
-        const { id } = req.params;
+        const id = req.params.id as string;
         const partnerId = req.user?.id;
 
         const result = await BookingService.partnerAcceptBooking(id, partnerId);
@@ -58,7 +58,7 @@ export class BookingController {
     }
 
     static async updateBooking(req: Request, res: Response) {
-        const { id } = req.params;
+        const id = req.params.id as string;
         const { paymentStatus, status } = req.body;
         const result = await BookingService.updateBooking(id, {
             paymentStatus,
@@ -70,7 +70,7 @@ export class BookingController {
     static async getAllBookingsByCustomer(req: Request, res: Response) {
         const { currentPage = 1, pageSize = 10 } = req.query;
         const userId = req.user?.id;
-        const { id } = req.params;
+        const id = req.params.id as string;
 
         if (!userId) {
             return res.status(401).json({
@@ -116,7 +116,7 @@ export class BookingController {
     }
 
     static async getABooking(req: Request, res: Response) {
-        const { id } = req.params;
+        const id = req.params.id as string;
         const result = await BookingService.findBookingbyId(id);
         res.status(result.success ? 200 : 404).json(result);
     }

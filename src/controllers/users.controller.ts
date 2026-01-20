@@ -9,13 +9,13 @@ export class UsersController {
     }
 
     static async checkEmailExists(req: Request, res: Response) {
-        const { email } = req.params;
+        const email = req.params.email as string;
         const checkEmail = await UsersService.checkEmailInUsersExists(email);
         res.status(checkEmail.success ? 200 : 404).json(checkEmail);
     }
 
     static async checkMobileExists(req: Request, res: Response) {
-        const { mobile } = req.params;
+        const mobile = req.params.mobile as string;
         const checkMobile = await UsersService.checkMobileInUsersExists(mobile);
         res.status(checkMobile.success ? 200 : 404).json(checkMobile);
     }
@@ -32,7 +32,7 @@ export class UsersController {
     }
 
     static async updateUser(req: Request, res: Response) {
-        const { userId } = req.params;
+        const userId = req.params.userId as string;
         const userData = req.body;
 
         if (req.file) {
@@ -44,7 +44,7 @@ export class UsersController {
     }
 
     static async deleteUser(req: Request, res: Response) {
-        const { userId } = req.params;
+        const userId = req.params.userId as string;
         const deleteUser = await UsersService.deleteUser(userId);
         res.status(deleteUser.success ? 200 : 404).json(deleteUser);
     }
