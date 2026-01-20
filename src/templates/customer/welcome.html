@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Bharat Worker</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+
+        .email-container {
+            max-width: 600px;
+            margin: auto;
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        /* Header */
+        .email-header {
+            background: #0c3f86;
+            color: #ffff;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 36px;
+            font-weight: 700;
+        }
+
+        .tagline {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        /* Content */
+        .email-content {
+            padding: 40px 30px;
+            color: #333;
+        }
+
+        .greeting {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #0c3f86;
+        }
+
+        .features-title {
+            color: #0c3f86;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e6ecf5;
+            padding-bottom: 8px;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 15px;
+            padding: 15px;
+            background: #f5f8fc;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .feature-icon {
+            background: #0c3f86;
+            color: #ffff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        /* CTA */
+        .cta-button {
+            display: inline-block;
+            background: #0c3f86;
+            color: #ffff;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-top: 25px;
+        }
+
+        /* Support */
+        .support-section {
+            background: #0c3f86;
+            color: #ffff;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        /* Footer */
+        .email-footer {
+            background: #0c3f86;
+            color: #ffff;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .copyright {
+            opacity: 0.8;
+            font-size: 14px;
+            margin-top: 15px;
+        }
+
+        @media (max-width: 600px) {
+            .email-content {
+                padding: 25px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="email-container">
+        <div class="email-header">
+            <h1 class="logo">Bharat Worker</h1>
+            <p class="tagline">Connecting Jobs with Trusted Workers</p>
+        </div>
+
+        <div class="email-content">
+            <h2 class="greeting">Dear {{USER_NAME}},</h2>
+
+            <p>
+                Welcome to <strong>Bharat Worker</strong> 👋<br>
+                We’re glad to have you with us.
+            </p>
+
+            <h3 class="features-title">With Bharat Worker, you can:</h3>
+
+            <div class="feature-item"> 
+                <div>Post your job requirements easily</div>
+            </div>
+
+            <div class="feature-item"> 
+                <div>Find reliable and skilled workers</div>
+            </div>
+
+            <div class="feature-item"> 
+                <div>Get workers for all services</div>
+            </div>
+
+            <div style="text-align:center">
+                <a href="https://bharatworker.com/services" class="cta-button">
+                    Start Posting Your Job
+                </a>
+            </div>
+
+            <div class="support-section">
+                <h4>Need Help?</h4>
+                <p>Our support team is always here for you.</p>
+            </div>
+        </div>
+
+        <div class="email-footer">
+            <h3>Bharat Worker Team</h3>
+            <p class="copyright">
+                © {{COPY_YEAR}} Bharat Worker. All rights reserved.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Completed | Rate Your Experience | Bharat Worker</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f8fafc;
+            color: #1e293b;
+            line-height: 1.5;
+        }
+
+        .email-wrapper {
+            max-width: 600px;
+            margin: auto;
+            padding: 16px;
+        }
+
+        .email-container {
+            background: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #0c3f86 0%, #0c3f86 100%);
+            color: #ffffff;
+            padding: 32px 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        .success-badge {
+            margin-top: 16px;
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        /* Content */
+        .content {
+            padding: 32px 24px;
+        }
+
+        .greeting {
+            font-size: 16px;
+            margin-bottom: 16px;
+        }
+
+        .greeting b {
+            color: #0c3f86;
+        }
+
+        .confirmation-text {
+            color: #475569;
+            margin-bottom: 24px;
+        }
+
+        /* Rating Card */
+        .amount-card {
+            background: #f1f5ff;
+            border: 2px solid #0c3f86;
+            border-radius: 14px;
+            padding: 28px 20px;
+            text-align: center;
+            margin: 28px 0;
+        }
+
+        .amount-label {
+            color: #0c3f86;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .amount {
+            font-size: 18px;
+            font-weight: 700;
+            color: #0c3f86;
+        }
+
+        /* Details */
+        .detail-row {
+            padding: 14px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .detail-label {
+            font-size: 13px;
+            color: #64748b;
+            font-weight: 600;
+        }
+
+        .detail-value {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1e293b;
+        }
+
+        /* CTA */
+        .cta-container {
+            text-align: center;
+            margin: 36px 0;
+        }
+
+        .cta-button {
+            background: #0c3f86;
+            color: #ffffff;
+            padding: 16px 32px;
+            border-radius: 10px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        /* Footer */
+        .footer {
+            background: #0c3f86;
+            color: #ffffff;
+            padding: 28px 24px;
+            text-align: center;
+        }
+
+        .support-link {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .copyright {
+            margin-top: 12px;
+            font-size: 13px;
+            opacity: 0.85;
+        }
+
+        /* Dark Mode */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: #0b1220;
+            }
+
+            .email-container {
+                background: #111827;
+                border-color: #1f2937;
+            }
+
+            .content {
+                color: #ffffff;
+            }
+
+            .detail-value {
+                color: #ffffff;
+            }
+
+            .confirmation-text {
+                color: #d1d5db;
+            }
+
+            .amount-card {
+                background: #0f172a;
+                border-color: #0c3f86;
+            }
+
+            .amount {
+                color: #93c5fd;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="email-wrapper">
+        <div class="email-container">
+            <!-- Header -->
+            <div class="header">
+                <h1>Your Job Completed Successfully 🎉</h1>
+                <div class="subtitle">bharatworker.com</div>
+                <div class="success-badge">We Value Your Feedback</div>
+            </div>
+
+            <!-- Content -->
+            <div class="content">
+                <p class="greeting">Hello <b>{{USER_NAME}}</b>,</p>
+
+                <p class="confirmation-text">
+                    Your job has been successfully completed.  
+                    We hope you had a great experience with our service.
+                    Your feedback helps us improve and serve you better.
+                </p>
+
+                <div class="amount-card">
+                    <div class="amount-label">How was your experience?</div>
+                    <div class="amount">
+                        Please take a moment to rate our service ⭐⭐⭐⭐⭐
+                    </div>
+                </div>
+
+                <div class="detail-row">
+                    <div class="detail-label">Job ID</div>
+                    <div class="detail-value">{{JOB_ID}}</div>
+                </div>
+
+                <div class="detail-row">
+                    <div class="detail-label">Job Title</div>
+                    <div class="detail-value">{{JOB_TITLE}}</div>
+                </div>
+
+                <div class="detail-row">
+                    <div class="detail-label">Job Status</div>
+                    <div class="detail-value">Completed</div>
+                </div>
+
+                <div class="cta-container">
+                    <a href="{{RATING_URL}}" class="cta-button">
+                        Rate Your Experience
+                    </a>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <p>
+                    Need help?
+                    <a href="mailto:support@bharatworker.com" class="support-link">
+                        support@bharatworker.com
+                    </a>
+                </p>
+                <p class="copyright">© {{COPY_YEAR}} Bharat Worker</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

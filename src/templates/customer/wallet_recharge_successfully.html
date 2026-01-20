@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallet Recharge Successful | Bharat Worker</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f8fafc;
+            color: #1e293b;
+            line-height: 1.5;
+        }
+
+        .email-wrapper {
+            max-width: 600px;
+            margin: auto;
+            padding: 16px;
+        }
+
+        .email-container {
+            background: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #0c3f86 0%, #0c3f86 100%);
+            color: #ffff;
+            padding: 32px 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 13px;
+            color: #ffff;
+            opacity: 0.9;
+        }
+
+        .success-badge {
+            margin-top: 16px;
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            color: #ffff;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        /* Content */
+        .content {
+            padding: 32px 24px;
+        }
+
+        .greeting {
+            font-size: 16px;
+            margin-bottom: 16px;
+        }
+
+        .greeting b {
+            color: #0c3f86;
+        }
+
+        .confirmation-text {
+            color: #475569;
+            margin-bottom: 24px;
+        }
+
+        /* Amount Card */
+        .amount-card {
+            background: #f1f5ff;
+            border: 2px solid #0c3f86;
+            border-radius: 14px;
+            padding: 28px 20px;
+            text-align: center;
+            margin: 28px 0;
+        }
+
+        .amount-label {
+            color: #0c3f86;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .amount {
+            font-size: 42px;
+            font-weight: 800;
+            color: #0c3f86;
+        }
+
+        .amount::before {
+            content: '₹';
+            margin-right: 4px;
+        }
+
+        /* Details */
+        .detail-row {
+            padding: 14px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .detail-label {
+            font-size: 13px;
+            color: #64748b;
+            font-weight: 600;
+        }
+
+        .detail-value {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1e293b;
+        }
+
+        /* CTA */
+        .cta-container {
+            text-align: center;
+            margin: 36px 0;
+        }
+
+        .cta-button {
+            background: #0c3f86;
+            color: #ffff;
+            padding: 16px 32px;
+            border-radius: 10px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        /* Footer */
+        .footer {
+            background: #0c3f86;
+            color: #ffff;
+            padding: 28px 24px;
+            text-align: center;
+        }
+
+        .support-link {
+            color: #ffff;
+            font-weight: 600;
+        }
+
+        .copyright {
+            margin-top: 12px;
+            font-size: 13px;
+            opacity: 0.85;
+        }
+
+        /* Dark Mode */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: #0b1220;
+            }
+
+            .email-container {
+                background: #111827;
+                border-color: #1f2937;
+            }
+
+            .content {
+                color: #ffff;
+            }
+
+            .detail-value {
+                color: #ffff;
+            }
+
+            .confirmation-text {
+                color: #d1d5db;
+            }
+
+            .amount-card {
+                background: #0f172a;
+                border-color: #0c3f86;
+            }
+
+            .amount {
+                color: #93c5fd;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="email-wrapper">
+        <div class="email-container">
+            <div class="header">
+                <h1>Wallet Recharged Successfully</h1>
+                <div class="subtitle">bharatworker.com</div>
+                <div class="success-badge">Payment Confirmed</div>
+            </div>
+
+            <div class="content">
+                <p class="greeting">Hello <b>{{USER_NAME}}</b>,</p>
+                <p class="confirmation-text">
+                    Your wallet has been successfully recharged.
+                </p>
+
+                <div class="amount-card">
+                    <div class="amount-label">Amount Added</div>
+                    <div class="amount">{{AMOUNT}}</div>
+                </div>
+
+                <div class="detail-row">
+                    <div class="detail-label">Invoice No</div>
+                    <div class="detail-value">{{INVOICE_NO}}</div>
+                </div>
+
+                <div class="detail-row">
+                    <div class="detail-label">Order ID</div>
+                    <div class="detail-value">{{ORDER_ID}}</div>
+                </div>
+
+                <div class="detail-row">
+                    <div class="detail-label">Transaction ID</div>
+                    <div class="detail-value">{{TRANSACTION_ID}}</div>
+                </div>
+
+                <div class="detail-row">
+                    <div class="detail-label">Payment Method</div>
+                    <div class="detail-value">{{PAYMENT_METHOD}}</div>
+                </div> 
+                
+                <div class="cta-container">
+                    <a href="{{DASHBOARD_URL}}" class="cta-button">View Wallet Balance</a>
+                </div>
+            </div>
+
+            <div class="footer">
+                <p>
+                    Need help?
+                    <a href="mailto:support@bharatworker.com" class="support-link">
+                        support@bharatworker.com
+                    </a>
+                </p>
+                <p class="copyright">© {{COPY_YEAR}} Bharat Worker</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

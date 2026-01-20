@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Congratulations! Job Completed | Bharat Worker</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f8fafc;
+            color: #1e293b;
+            line-height: 1.5;
+        }
+
+        .email-wrapper {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 0 16px;
+        }
+
+        .email-container {
+            background: #ffffff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(12, 63, 134, 0.08);
+            border: 1px solid #e2e8f0;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #0c3f86 0%, #1a56db 100%);
+            color: #ffffff;
+            padding: 40px 24px 32px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: #fbbf24;
+            border-radius: 2px;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        /* Celebration Badge */
+        .celebration-badge {
+            margin-top: 24px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.15);
+            font-size: 14px;
+            font-weight: 700;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Content */
+        .content {
+            padding: 40px 32px;
+        }
+
+        .greeting {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #1e293b;
+        }
+
+        .greeting b {
+            color: #0c3f86;
+        }
+
+        .congrats-text {
+            font-size: 16px;
+            color: #475569;
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        /* Earnings Highlight */
+        .earnings-highlight {
+            text-align: center;
+            margin: 36px 0;
+            padding: 32px 24px;
+            background: linear-gradient(135deg, #f1f5ff 0%, #e8f0ff 100%);
+            border-radius: 16px;
+            border: 2px solid #0c3f86;
+            position: relative;
+        }
+
+        .earnings-label {
+            font-size: 14px;
+            color: #0c3f86;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .earnings-amount {
+            font-size: 48px;
+            font-weight: 900;
+            color: #0c3f86;
+            line-height: 1;
+            margin: 8px 0;
+        }
+
+        .earnings-amount::before {
+            content: '₹';
+            font-size: 36px;
+            vertical-align: top;
+            margin-right: 4px;
+        }
+
+        .earnings-note {
+            font-size: 14px;
+            color: #64748b;
+            margin-top: 12px;
+            font-weight: 500;
+        }
+
+        /* Details */
+        .details-grid {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 24px;
+            margin: 32px 0;
+        }
+
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .detail-item:last-child {
+            border-bottom: none;
+        }
+
+        .detail-label {
+            font-size: 14px;
+            color: #64748b;
+            font-weight: 600;
+        }
+
+        .detail-value {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1e293b;
+            text-align: right;
+        }
+
+        /* Status Badge */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            background: #dcfce7;
+            color: #166534;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .status-badge::before {
+            content: '✓';
+            font-size: 12px;
+        }
+
+        /* CTA */
+        .cta-container {
+            text-align: center;
+            margin: 48px 0 32px;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #0c3f86 0%, #1a56db 100%);
+            color: #ffffff;
+            padding: 18px 40px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(12, 63, 134, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(12, 63, 134, 0.3);
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #0c3f86 0%, #0a2a5c 100%);
+            color: #ffffff;
+            padding: 40px 32px;
+            text-align: center;
+        }
+
+        .support-section {
+            margin-bottom: 24px;
+        }
+
+        .support-link {
+            color: #93c5fd;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .support-link:hover {
+            text-decoration: underline;
+        }
+
+        .copyright {
+            font-size: 13px;
+            opacity: 0.85;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Dark Mode */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: #0b1220;
+            }
+
+            .email-container {
+                background: #111827;
+                border-color: #1e293b;
+            }
+
+            .content {
+                color: #ffffff;
+            }
+
+            .greeting {
+                color: #ffffff;
+            }
+
+            .congrats-text {
+                color: #d1d5db;
+            }
+
+            .earnings-highlight {
+                background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+                border-color: #1e40af;
+            }
+
+            .details-grid {
+                background: #1e293b;
+            }
+
+            .detail-value {
+                color: #ffffff;
+            }
+
+            .detail-label {
+                color: #94a3b8;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .content {
+                padding: 32px 20px;
+            }
+
+            .header {
+                padding: 32px 20px 28px;
+            }
+
+            .header h1 {
+                font-size: 24px;
+            }
+
+            .earnings-amount {
+                font-size: 40px;
+            }
+
+            .cta-button {
+                padding: 16px 32px;
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="email-wrapper">
+        <div class="email-container">
+            <!-- Header -->
+            <div class="header">
+                <h1>Congratulations! 🎊</h1>
+                <div class="subtitle">Bharat Worker</div>
+                <div class="celebration-badge">
+                    <span>🎯 Job Successfully Completed</span>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="content">
+                <p class="greeting">Hey <b>{{USER_NAME}}</b>,</p>
+
+                <p class="congrats-text">
+                    Fantastic work! 🎉 You’ve successfully completed your job.
+                    Your dedication has paid off, and <strong>{{EARNED_AMOUNT_SMALL}}</strong> has been credited to your
+                    earning.
+                    Keep up the amazing work and continue earning with Bharat Worker!
+                </p>
+
+                <!-- Earnings Highlight -->
+                <div class="earnings-highlight">
+                    <div class="earnings-label">You Earned</div>
+                    <div class="earnings-amount">{{EARNED_AMOUNT}}</div>
+                </div>
+
+                <!-- Job Details -->
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <span class="detail-label">Job ID</span>
+                        <span class="detail-value">#{{JOB_ID}}</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Job Title</span>
+                        <span class="detail-value">{{JOB_TITLE}}</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Payment Status</span>
+                        <span class="status-badge">Completed</span>
+                    </div>
+                </div>
+
+                <!-- CTA -->
+                <div class="cta-container">
+                    <a href="{{DASHBOARD_URL}}" class="cta-button">
+                        View Your Wallet & Find More Jobs
+                    </a>
+                </div>
+
+                <p style="text-align: center; color: #64748b; font-size: 14px; margin-top: 24px;">
+                    Ready for your next earning opportunity? More jobs are waiting for you!
+                </p>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <div class="support-section">
+                    <p style="margin-bottom: 8px;">Need assistance with your payment?</p>
+                    <a href="mailto:support@bharatworker.com" class="support-link">
+                        support@bharatworker.com
+                    </a>
+                </div>
+                <p class="copyright">
+                    © {{COPY_YEAR}} Bharat Worker. All rights reserved.<br>
+                    Building India's workforce, one job at a time.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

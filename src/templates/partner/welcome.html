@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Bharat Worker</title>
+    <style>
+        /* Mobile-First CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.5;
+            color: #333333;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            width: 100% !important;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Main Container - Optimized for Mobile */
+        .email-wrapper {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+        }
+        
+        /* Header - Mobile Optimized */
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            padding: 24px 16px;
+            text-align: center;
+            color: white;
+        }
+        
+        .logo {
+            display: block;
+            margin: 0 auto 16px;
+            text-align: center;
+        }
+        
+        .logo-text {
+            font-size: 26px;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .logo-icon {
+            font-size: 28px;
+        }
+        
+        .header-title {
+            font-size: 22px;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 12px;
+            padding: 0 8px;
+        }
+        
+        .header-subtitle {
+            font-size: 15px;
+            opacity: 0.95;
+            line-height: 1.4;
+            padding: 0 8px;
+        }
+        
+        /* Content Area */
+        .content {
+            padding: 28px 20px;
+        }
+        
+        .greeting {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #1e3c72;
+            line-height: 1.4;
+        }
+        
+        .paragraph {
+            font-size: 16px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .highlight {
+            color: #2a5298;
+            font-weight: 600;
+        }
+        
+        /* Mobile-Optimized Features Grid */
+        .features-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1e3c72;
+            text-align: center;
+            margin: 32px 0 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #f0f5ff;
+        }
+        
+        .features-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin: 0 0 28px;
+        }
+        
+        .feature-item {
+            background: #f8faff;
+            border-radius: 10px;
+            padding: 20px 16px;
+            border-left: 4px solid #2a5298;
+            position: relative;
+            min-height: 120px;
+        }
+        
+        .feature-icon {
+            position: absolute;
+            top: 20px;
+            left: 16px;
+            font-size: 24px;
+            color: #2a5298;
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        .feature-content {
+            margin-left: 56px;
+        }
+        
+        .feature-heading {
+            font-size: 17px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #1e3c72;
+        }
+        
+        .feature-desc {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.5;
+        }
+        
+        /* Mobile-Optimized CTA Button */
+        .cta-container {
+            text-align: center;
+            margin: 28px 0;
+            padding: 0 8px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            width: 100%;
+            max-width: 280px;
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            color: white;
+            text-decoration: none;
+            padding: 18px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 17px;
+            text-align: center;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(30, 60, 114, 0.2);
+            border: none;
+            -webkit-appearance: none;
+        }
+        
+        /* Mobile Touch Target Optimization */
+        @media (hover: none) {
+            .cta-button {
+                padding: 20px 24px;
+            }
+            
+            .feature-item {
+                padding: 22px 16px;
+            }
+        }
+        
+        .closing-text {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1e3c72;
+            text-align: center;
+            margin: 32px 0 24px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        
+        /* Footer - Mobile Optimized */
+        .footer {
+            background-color: #f1f5ff;
+            padding: 24px 20px;
+            text-align: center;
+        }
+        
+        .support-section {
+            margin-bottom: 24px;
+        }
+        
+        .support-text {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.5;
+            margin-bottom: 16px;
+        }
+        
+        .support-email {
+            display: inline-block;
+            color: #2a5298;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 8px 16px;
+            background: white;
+            border-radius: 6px;
+            margin-top: 8px;
+            border: 1px solid #dce5ff;
+        }
+        
+        .social-section {
+            margin: 24px 0;
+        }
+        
+        .social-title {
+            font-size: 15px;
+            color: #666;
+            margin-bottom: 16px;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            background-color: #2a5298;
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.3s;
+        }
+        
+        .contact-info {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #e6ecff;
+        }
+        
+        .contact-link {
+            color: #2a5298;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        /* Desktop Adjustments */
+        @media screen and (min-width: 500px) {
+            .header {
+                padding: 32px 24px;
+            }
+            
+            .header-title {
+                font-size: 26px;
+            }
+            
+            .content {
+                padding: 36px 32px;
+            }
+            
+            .greeting {
+                font-size: 22px;
+            }
+            
+            .features-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+            
+            .feature-item {
+                min-height: 140px;
+            }
+            
+            .cta-button {
+                width: auto;
+                padding: 18px 40px;
+            }
+        }
+        
+        /* Small Mobile Devices */
+        @media screen and (max-width: 374px) {
+            .header {
+                padding: 20px 12px;
+            }
+            
+            .content {
+                padding: 24px 16px;
+            }
+            
+            .logo-text {
+                font-size: 22px;
+            }
+            
+            .header-title {
+                font-size: 20px;
+            }
+            
+            .feature-content {
+                margin-left: 52px;
+            }
+            
+            .feature-heading {
+                font-size: 16px;
+            }
+        }
+        
+        /* iOS Specific Fixes */
+        @supports (-webkit-touch-callout: none) {
+            .cta-button {
+                padding: 20px 24px;
+            }
+            
+            .feature-item {
+                -webkit-tap-highlight-color: transparent;
+            }
+        }
+        
+        /* Dark Mode Support */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #1a1a1a;
+            }
+            
+            .email-wrapper {
+                background-color: #2d2d2d;
+                color: #e0e0e0;
+            }
+            
+            .feature-item {
+                background-color: #3a3a3a;
+            }
+            
+            .feature-desc {
+                color: #b0b0b0;
+            }
+            
+            .footer {
+                background-color: #252525;
+            }
+            
+            .support-email {
+                background-color: #3a3a3a;
+                color: #7eb6ff;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-wrapper">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">
+                <a href="#" class="logo-text">
+                    <span class="logo-icon">💼</span>
+                    Bharat Worker
+                </a>
+            </div>
+            <h1 class="header-title">Your Journey to Easy Job Search, Bidding & Earnings Begins Here!</h1>
+            <p class="header-subtitle">Connecting talent with opportunities in a simple and efficient way</p>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="content">
+            <h2 class="greeting">Dear Partner,</h2>
+            
+            <p class="paragraph">
+                Welcome to <span class="highlight">Bharat Worker</span>! We're thrilled to have you join our community, where finding jobs, bidding on Job, and earning money is made simple and efficient.
+            </p>
+            
+            <p class="paragraph">
+                At Bharat Worker, we believe in connecting talented individuals like you with opportunities that match your skills and ambitions. Whether you're looking for freelance job, part-time work, or long-term assignments, our platform is designed to make your job search easy and rewarding.
+            </p>
+            
+            <h3 class="features-title">Here's what you can do next:</h3>
+            
+            <!-- Features Grid -->
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">👤</div>
+                    <div class="feature-content">
+                        <h4 class="feature-heading">Complete Your Profile</h4>
+                        <p class="feature-desc">Showcase your skills and expertise to attract potential employers.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">🔍</div>
+                    <div class="feature-content">
+                        <h4 class="feature-heading">Explore Jobs</h4>
+                        <p class="feature-desc">Browse job listings tailored to your interests.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">💰</div>
+                    <div class="feature-content">
+                        <h4 class="feature-heading">Place Bids</h4>
+                        <p class="feature-desc">Submit competitive bids on matching job.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">🚀</div>
+                    <div class="feature-content">
+                        <h4 class="feature-heading">Start Earning</h4>
+                        <p class="feature-desc">Secure job, deliver quality work, and grow your income.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- CTA Button -->
+            <div class="cta-container">
+                <a href="#" class="cta-button">Start Your Journey Now</a>
+            </div>
+            
+            <p class="paragraph">
+                We're here to support you every step of the way. Thank you for choosing Bharat Worker. We're excited to see you thrive and achieve your goals!
+            </p>
+            
+            <p class="closing-text">
+                Happy job hunting and happy earning!
+            </p>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <div class="support-section">
+                <p class="support-text">
+                    Have questions or need assistance?
+                </p>
+                <a href="mailto:support@bharatworker.com" class="support-email">
+                    support@bharatworker.com
+                </a>
+                <p class="support-text" style="margin-top: 16px;">
+                    Visit our Help Center for quick answers
+                </p>
+            </div> 
+            <div class="contact-info">
+                <strong>The Bharat Worker Team</strong><br>
+                <a href="https://www.bharatworker.com" class="contact-link">www.bharatworker.com</a><br>
+                Contact: +91-8989-16-5353
+            </div>
+        </div>
+    </div>
+</body>
+</html>

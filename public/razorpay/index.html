@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Razorpay Payment</title>
+</head>
+
+<body>
+  <h1>Pay Using Razorpay</h1>
+
+  <input type="number" id="amount" placeholder="Enter Amount" />
+  <button onclick="payNow()">Pay Now</button>
+
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+  <script>
+    async function payNow() {
+      const amount = document.getElementById("amount").value;
+      const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5NWUwZjNjMDdkOGE1MTE5MTUyY2NkYSIsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTc2Nzc3MTk3OSwiZXhwIjoxNzY4Mzc2Nzc5fQ.AUmyeCd-8rn3vI2NRyvuNmJSlsRIEKG4nlw51mq0m9o";
+      // for walllet start
+      /* const response = await fetch("api/customer/add-wallet-amount", {
+        method: "POST",
+        headers: { "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+         },
+        body: JSON.stringify({ amount }),
+      }); */
+      // for wallet end
+
+      /*
+       const response = await fetch("api/customer/subscription-without-code", {
+        method: "POST",
+        headers: { "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+         },
+        body: JSON.stringify({ subscriptionplans:"6905ffd73df2c4e51d10b2b1" }),
+      }); 
+       */
+       /*
+      const response = await fetch("api/partner/add-wallet-amount", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`
+        },
+        body: JSON.stringify({ amount }),
+      });
+       */
+      /*
+      const response = await fetch("api/partner/subscription-without-code", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`
+        },
+        body: JSON.stringify({ subscriptionplans: "68d12d38f45acbe31503a1e4" }),
+      });
+      */
+
+       
+       const response = await fetch("api/customer/add-subscriptionplans-with-code", {
+        method: "POST",
+        headers: { "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+         },
+        body: JSON.stringify({ subscriptionplans:"6905ffd73df2c4e51d10b2b1",referralOrCoupon:"GUEST087966" }),
+      }); 
+        
+
+      const data = await response.json();
+      console.log("Order Response:", data?.data?.result);
+
+      const options = {
+        key: "rzp_test_RqhG9ElFRb3UeO", //rzp_live_RqglEPGIpc7rQp , rzp_test_RqhG9ElFRb3UeO
+        amount: data?.data?.result?.amount,
+        currency: "INR",
+        name: "Test Payment",
+        description: "Razorpay Testing",
+        order_id: data?.data?.result.order_id,
+        handler: function (response) {
+          alert("Payment Successful!");
+          console.log(response);
+        },
+        modal: {
+          ondismiss: function () {
+            // ❌ User cancelled payment
+            console.log("Payment cancelled by user");
+            alert("Payment cancelled");
+            // optional: redirect or update UI
+          },
+        },
+        prefill: {
+          name: "Test User",
+          email: "test@example.com",
+          contact: "9999999999",
+        },
+        theme: {
+          color: "#3399cc",
+        },
+      };
+      console.log(options, 'options');
+      const rzp = new Razorpay(options);
+      rzp.open();
+    }
+  </script>
+</body>
+
+</html>
